@@ -1,9 +1,23 @@
-<script></script>
+<script setup>
+import { reactive } from "vue";
+
+const emit = defineEmits(["create-todo"]);
+
+const todoState = reactive({
+  todo: "",
+  invalid: null,
+  errMsg: "",
+});
+
+const createTodo = () => {
+  emit("create-todo", todoState.todo);
+};
+</script>
 
 <template>
   <div class="input-wrap">
-    <input type="text" />
-    <button>Create</button>
+    <input type="text" v-model="todoState.todo" />
+    <button @click="createTodo()">Create</button>
   </div>
 </template>
 
