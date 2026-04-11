@@ -1,0 +1,19 @@
+<script setup>
+const props = defineProps({
+  todo: {
+    type: Object,
+    required: true,
+  },
+});
+</script>
+
+<template>
+  <li>
+    <input type="checkbox" :checked="todo.isCompleted">
+    <div class="todo">
+      <input type="text">
+    </div>
+  </li>
+</template>
+
+<style lang="scss" scoped></style>
